@@ -1,9 +1,10 @@
 # REPMGR切换实验
 ## repmgr命令如下：
-` repmgr primary register 安装pg的repmgr扩展并注册为主节点`` repmgr primary unregister 注销不活动的主节点`
+` repmgr primary register 安装pg的repmgr扩展并注册为主节点`
+` repmgr primary unregister 注销不活动的主节点`
  `repmgr standby clone 从其他节点复制数据到从节点 `
  `repmgr standby register 注册从节点（添加从的信息到repmgr元数据）``repmgr standby unregister repmgr元数据中移除从的信息``repmgr standby promote 将从提升为主``repmgr standby follow 将从跟随新主``repmgr standby switchover 将从提升为主并将主降级为从`
-`                                                `
+
 `repmgr witness register 注册一个观察节点                    `
 
 `repmgr witness unregister 移除一个观察节点                `

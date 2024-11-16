@@ -1,6 +1,7 @@
 # postgresql dblink 的使用
 postgresql dblink origal repo 🔗[dblink_connect](https://www.postgresql.org/docs/16/contrib-dblink-connect.html)
 > dblink_connect — opens a persistent connection to a remote database
+
 首先安装插件
 create extension dblink ;
 

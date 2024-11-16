@@ -17,20 +17,33 @@ pg_dump命令参数有如下：
 
 
 >  -o, --oids                   在转储中包括 OID
+> 
 >   -O, --no-owner               在明文格式中, 忽略恢复对象所属者
 >  
 >   -s, --schema-only            只转储模式, 不包括数据
+> 
 >   -S, --superuser=NAME         在明文格式中使用指定的超级用户名
+> 
 >   -t, --table=TABLE            只转储指定名称的表
+> 
 >   -T, --exclude-table=TABLE    不转储指定名称的表
+> 
 >   -x, --no-privileges          不要转储权限 (grant/revoke)
+> 
 >   --binary-upgrade             只能由升级工具使用
+> 
 >   --column-inserts             以带有列名的INSERT命令形式转储数据
+> 
 >   --disable-dollar-quoting     取消美元 (符号) 引号, 使用 SQL 标准引号
+> 
 >   --disable-triggers           在只恢复数据的过程中禁用触发器
+> 
 >   --enable-row-security        启用行安全性(只转储用户能够访问的内容)
+> 
 >   --exclude-table-data=TABLE   不转储指定名称的表中的数据
+> 
 >   --if-exists              当删除对象时使用IF EXISTS
+> 
 > --rows-per-insert=nrows
 >将数据转储为INSERT命令（而不是COPY）。控制每个INSERT命令的最大行数。指定的值必须是大于零的数字。还原过程中的任何错误都只会导致有问题的INSERT中的行丢失，而不是整个表内容丢失.
 

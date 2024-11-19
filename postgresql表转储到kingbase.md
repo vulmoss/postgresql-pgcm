@@ -50,3 +50,16 @@ pg_dump命令参数有如下：
 ```
 [kingbase@db01 bak]$ ksql -p5432 -Ulyra_owner -d lyradb  -f /bak/wmbnr.sql > /bak/imp1.logPassword for user lyra_owner:ksql:/bak/wmbnr.sql:47: ERROR:  relation "wm_mb_mobannr" already existsksql:/bak/wmbnr.sql:718676: ERROR:  multiple primary keys for table "wm_mb_mobannr" are not allowedksql:/bak/wmbnr.sql:718683: ERROR:  relation "idx_wm_mb_mobannr_mbid" already exists[kingbase@db01 bak]$[kingbase@db01 bak]$[kingbase@db01 bak]$ ls -ltrtotal 3383824-rw-r--r--. 1 root     root     3465031663 Nov 16 15:24 wmbnr.sql-rw-rw-r--. 1 kingbase kingbase        454 Nov 16 15:52 imp1.log[kingbase@db01 bak]$ more imp1.logSETSETSETSETSET set_config------------(1 row)SETSETSETSETSETSETALTER TABLECOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTCOMMENTINSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 1000INSERT 0 913[kingbase@db01 bak]$
 ```
+
+
+<u>postgresql 导出索引和约束</u>：
+```
+pg_dump -h 127.0.0.1 -Upostgres -p 5432 -W -n merc_ys -n merc_yh  -n merc_hl -n merc_zf  -x   -s --inserts --no-publications --no-subscriptions lyradb -f /tmp/db4.sql > /tmp/db4.logcat db4.sql |grep -i primary -B 1 -A 1 > db4_primary_constraint.sqlcat db4.sql |grep -i index -B 1  -A 1 > db4_index.sql
+```
+
+
+<u>依次导入到人大金仓的库中</u>：
+
+```
+ksql -p5432 -Ulyra_owner -d lyradb  -f /home/kingbase/tmp/db4_primary_constraint.sql >  /home/kingbase/tmp/impp4.logksql -p5432 -Ulyra_owner -d lyradb  -f /home/kingbase/tmp/db4_index.sql >  /home/kingbase/tmp/impi4.log
+```

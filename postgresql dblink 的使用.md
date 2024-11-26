@@ -7,7 +7,7 @@ create extension dblink ;
 
 使用方法如下：
 ```--常规使用
-select * from dblink('hostaddr=172.19.180.15 port=5432 dbname=lyradb user=lyra_owner password=lyra_owner##2024','select "id" from "lyra_dz.dz_yh_jibenxx"') AS testTable (id varchar(50));
+select * from dblink('hostaddr=172.19.180.15 port=5432 dbname=lyradb user=lyra_owner password=lyra_owner##2024','select "id" from "lyra_dz"."dz_yh_jibenxx"') AS testTable (id varchar(50));
 --在事务中进行数据的修改
 1. 先执行dblink_connect保持连接
  SELECT dblink_connect('test','hostaddr=172.19.180.15 port=5432 dbname=lyradb user=lyra_owner password=lyra_owner##2024');
